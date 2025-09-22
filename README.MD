@@ -5,15 +5,11 @@ Une application web back end pour la gestion des examens
 ## 📋 Table des matières
 
 - [Technologies utilisées](#technologies-utilisées)
-- [Architecture](#architecture)
 - [Prérequis](#prérequis)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Utilisation](#utilisation)
 - [Endpoints API](#endpoints-api)
-- [Structure du projet](#structure-du-projet)
 - [Développement](#développement)
-- [Dépannage](#dépannage)
 - [Contribution](#contribution)
 
 ## 🚀 Technologies utilisées
