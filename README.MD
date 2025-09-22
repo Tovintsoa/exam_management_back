@@ -75,7 +75,11 @@ DATABASE_URL="postgresql://tovintsoa:tovintsoa@database:5432/exam_management?ser
 
 # Installation des dépendances
 composer install
+
+# Génerer les API key 
+php bin/console lexik:jwt:generate-keypair
 ```
+
 
 ### 6. Configuration de la base de données
 Ensuite, lancer:
