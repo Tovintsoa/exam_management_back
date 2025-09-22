@@ -1,6 +1,6 @@
-# Microservice - Gestion de Transactions
+# Gestion examen
 
-Une application web basée sur une architecture microservices pour la gestion CRUD (Create, Read, Update, Delete) des transactions financières.
+Une application web back end pour la gestion des examens
 
 ## 📋 Table des matières
 
@@ -18,7 +18,7 @@ Une application web basée sur une architecture microservices pour la gestion CR
 
 ## 🚀 Technologies utilisées
 
-- **Backend**: PHP 8.4 avec Symfony 7.3
+- **Backend**: PHP 8.4.12 avec Symfony  7.3.3
 - **API**: API Platform
 - **Base de données**: POSTGRESQL (via Docker)
 - **Conteneurisation**: Docker & Docker Compose
@@ -52,6 +52,7 @@ Assurez-vous que Docker Desktop est installé avec l'intégration WSL2 activée 
 # Depuis Ubuntu (WSL2)
 ```bash
 git clone https://github.com/Tovintsoa/exam_management_back.git
+ cd exam_management_back
 ```
 
 ### 3. Construction et démarrage des services
@@ -70,3 +71,79 @@ Créez un fichier `.env.local`  avec vos paramètres locaux :
 # Database
 DATABASE_URL="postgresql://tovintsoa:tovintsoa@database:5432/exam_management?serverVersion=16&charset=utf8"
 ```
+### 5. Installation des dépendances PHP
+
+```bash
+# Accéder au répertoire du microservice via docker
+ docker exec -it  exam_management_back-app-1 bash
+
+# Installation des dépendances
+composer install
+```
+
+### 6. Configuration de la base de données
+Ensuite, lancer:
+```bash
+# Création de la base de données
+php bin/console doctrine:database:create
+
+# Exécution des migrations
+php bin/console doctrine:migrations:migrate
+```
+Commande pour laner les fixtures pour avoir un user dans labase 
+```bash
+php bin/console doctrine:fixtures:load
+
+```
+## 💻 Utilisation
+
+Accès à API Platform : http://exam_management.tovintsoa/api/docs
+Authentification : 
+ - Utilisateur : tianatovintsoa@gmail.com
+ - Mot de passe : tovintsoa 
+
+
+### 📡 Endpoints API
+
+| Method | Endpoint      | Description                     |
+|--------|--------------|---------------------------------|
+| GET    | `/api/exams` | Retrieves the list of exams     |
+| POST   | `/api/exams` | Creates a new exam              |
+| POST   | `/api/auth`  | Generates a user token (login)  |
+
+## 🔧 Développement
+
+### Commandes utiles
+
+```bash
+# Voir les logs en temps réel
+docker compose logs -f
+
+# Exécuter des commandes dans le conteneur
+docker compose exec app bash
+
+# Générer une nouvelle entité
+php bin/console make:entity
+
+# Créer une migration
+php bin/console make:migration
+
+# Vider le cache
+php bin/console cache:clear
+```
+
+## 🤝 Contribution
+
+1. Fork le projet
+2. Créez votre branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Committez vos changements (`git commit -am 'Ajout nouvelle fonctionnalité'`)
+4. Poussez vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
+5. Créez une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👥 Auteurs
+
+- **Tovintsoa** - Développeur principal
