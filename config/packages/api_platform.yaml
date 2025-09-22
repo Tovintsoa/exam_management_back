@@ -1,0 +1,17 @@
+api_platform:
+  collection:
+    pagination:
+      items_per_page_parameter_name: itemsPerPage
+  use_symfony_listeners: true
+  swagger:
+    api_keys:
+      JWT:
+        name: Authorization
+        type: header
+  title: Hello API Platform
+  version: 1.0.0
+  defaults:
+    pagination_client_items_per_page: true
+    stateless: true
+    cache_headers:
+      vary: ['Content-Type', 'Authorization', 'Origin']
